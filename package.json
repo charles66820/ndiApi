@@ -1,0 +1,14 @@
+{
+  "name": "ndi-api",
+  "version": "0.0.1",
+  "description": "Api for test ndi",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "author": "charles66820",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

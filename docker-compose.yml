@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  ndiApi:
+    container_name: ndiApi
+    image: node:10-alpine
+    user: "node"
+    working_dir: /home/node/app
+    command: "/bin/sh -c \"npm install && npm start -s\""
+    volumes:
+      - '.:/home/node/app'
+    labels:
+      - "traefik.http.routers.ndiApi.rule=Host(`ndiApi.magicorp.fr`)"
+      - traefik.http.services.ndiApi.loadbalancer.server.port=8080
+    networks:
+      - backend
+
+networks:
+  backend:
+    external:
+      name: backend

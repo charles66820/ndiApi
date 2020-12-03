@@ -1,0 +1,9 @@
+version: "2"
+
+services:
+  ndiApi:
+    labels:
+      - traefik.http.routers.ndiApi.middlewares=https-redirectscheme
+      - "traefik.http.routers.ndiApi-secure.rule=Host(`ndiApi.magicorp.fr`)"
+      - traefik.http.routers.ndiApi-secure.tls=true
+      - traefik.http.routers.ndiApi-secure.tls.certresolver=sslresolver
